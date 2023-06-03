@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = '5love-nginx'
-        DOCKER_TAG = 'latest'
+        DOCKER_TAG = sh(script: 'git rev-parse --short=6 HEAD', returnStdout: true).trim()
         DOCKER_CREDENTIALS = 'dockerhub' // This should be the ID of the credentials in Jenkins
     }
 
